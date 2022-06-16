@@ -7,6 +7,7 @@ const moles = document.querySelectorAll('.mole');
 let lastHole;
 let timeUp = false;
 let score = 0;
+let lastScore = 0;
 let Players = [];
 let playing = false;
 
@@ -99,6 +100,7 @@ function saveGame(player) {
         //const jsonContent = JSON.stringify(Players);
         console.log(Players);
         displayLeaderboard();
+        lastScore = score;
         score = 0;
         
         // fs.writeFile("./players.json", jsonContent, 'utf8', function (err) {
@@ -112,6 +114,6 @@ function saveGame(player) {
 }
 
 function popUpMojito() {
-    var mojitoRecipe = 'RECIPE FOR ' + score + ' MOJITOS\n------\n' + 5*score + ' mint leaves for garnish\n' + 2*score + ' oz white rum\n' + 1*score + ' oz lime juice\n' + 0.5*score + 'oz simple syrup\nIce\nClub soda\nLime wedges for garnish';
+    var mojitoRecipe = 'RECIPE FOR ' + lastScore + ' MOJITOS\n------\n' + 5*lastScore + ' mint leaves for garnish\n' + 2*lastScore + ' oz white rum\n' + 1*lastScore + ' oz lime juice\n' + 0.5*lastScore + 'oz simple syrup\nIce\nClub soda\nLime wedges for garnish';
     window.alert(mojitoRecipe);
 }
