@@ -42,7 +42,7 @@ h1 {
 
 .hole:after{
     display:block;
-    background: url(cisco.png) bottom center no-repeat;
+    background: url(bra-desk.png) bottom center no-repeat;
     background-size:contain;
     content: '';
     width: 100%;
@@ -140,7 +140,7 @@ td {
 
     .hole1:after{
         display:block;
-        background: url(cisco.png) bottom center no-repeat;
+        background: url(bra-desk.png) bottom center no-repeat;
         background-size:contain;
         content: '';
         max-width: 70%;
