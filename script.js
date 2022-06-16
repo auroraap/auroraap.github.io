@@ -75,11 +75,6 @@ function Player(myName, myScore) {
     this.score = myScore;
 }
 
-// function saveGame(player) {
-//         p1 = new Player(player, score);
-//         Players.add(p1);
-// }
-
 function saveGame(player) {
         if(player == "")
         {
@@ -91,6 +86,7 @@ function saveGame(player) {
             alert("Please finish a game to save it!")
             return;
         }
+        timeUp = false;
         p1 = new Player(player, score);
         
         Players.push(p1);
@@ -98,9 +94,7 @@ function saveGame(player) {
         
         //const jsonContent = JSON.stringify(Players);
         console.log(Players);
-        displayLeaderboard();
-        score = 0;
-        
+        displayLeaderboard();        
         // fs.writeFile("./players.json", jsonContent, 'utf8', function (err) {
         //     if (err) {
         //         return console.log(err);
