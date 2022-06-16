@@ -98,6 +98,7 @@ function saveGame(player) {
         displayLeaderboard();
         lastScore = score;
         score = 0;
+        timeUp = false;
         
         // fs.writeFile("./players.json", jsonContent, 'utf8', function (err) {
         //     if (err) {
