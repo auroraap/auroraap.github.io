@@ -17,11 +17,11 @@ h1 {
 }
 
 .score {
-    background:blue;
+    background:#66ffff;
     padding: 0 48px;
     line-height: 1;
     border-radius: 16px;
-    color: #fff;
+    color: #000;
     margin-left: 15px;
 }
 
@@ -68,10 +68,10 @@ h1 {
 
 button{
     width:175px;
-    font-size: 35px;
+    font-size: 25px;
     height: 70px;
     color: #fff;
-    background-color: blue;
+    background-color: #33cc33;
     border-radius: 10px;
     margin-left: 20px;
     margin-top: 90px;
