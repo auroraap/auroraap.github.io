@@ -77,7 +77,8 @@ function Player(myName, myScore) {
 }
 
 function saveGame(player) {
-        if(player == "")
+        
+        if(player == "" )
         {
             alert("Please input name!");
             return;
