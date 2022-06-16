@@ -8,6 +8,7 @@ let lastHole;
 let timeUp = false;
 let score = 0;
 let Players = [];
+let playing = false;
 
 //create a function to make a random time for mole to pop from the hole
 function randomTime(min, max) {
@@ -39,11 +40,16 @@ function peep() {
 }
 
 function startGame() {
-    scoreBoard.textContent = 0;
-    timeUp = false;
-    score = 0;
-    peep();
-    setTimeout(() => timeUp = true, 15000) //show random moles for 15 seconds
+    if(playing == false)
+    {
+        playing = true;
+        scoreBoard.textContent = 0;
+        score = 0;
+        peep();
+        setTimeout(() => timeUp = true, 15000) //show random moles for 15 seconds
+        setTimeout(() => playing = false, 15000)
+    }
+    
 }
 
 function displayLeaderboard() {
@@ -75,6 +81,16 @@ function Player(myName, myScore) {
 // }
 
 function saveGame(player) {
+        if(player == "")
+        {
+            alert("Please input name!");
+            return;
+        }
+        if(playing == true)
+        {
+            alert("Please finish a game to save it!")
+            return;
+        }
         p1 = new Player(player, score);
         
         Players.push(p1);
