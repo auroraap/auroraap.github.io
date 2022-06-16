@@ -47,13 +47,17 @@
     </form>
 
     <button id="start-camera">Start Camera</button>
-    <button id="click-photo"> Click Photo </button>
     <button onClick="saveGame(player.value)"> Save score! </button>
     <button onClick="popUpMojito()">Get your mojitos!</button>
+    <video id="video" width="320" height="240" autoplay></video>
 
+    <p>
+        <h2>Leader:</h2>
+        <canvas id = "leader"> </canvas>
+    </p>
     <table>
         <thead>
-          <th>Player</th><th>Score</th><th> Picture </th>
+          <th>Player</th><th>Score</th>
         </thead>
         <tbody id="thingy"></tbody>
     </table>

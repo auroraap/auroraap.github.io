@@ -10,6 +10,7 @@ let score = 0;
 let lastScore = 0;
 let Players = [];
 let playing = false;
+let leader = null;
 
 let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
@@ -52,6 +53,7 @@ function peep() {
 }
 
 function startGame() {
+    timeUp = false;
     if(playing == false)
     {
         playing = true;
@@ -64,14 +66,40 @@ function startGame() {
     
 }
 
-function displayLeaderboard() {
+function displayLeaderboard(name) {
     // let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 	// video.srcObject = stream;
     let theExport = ""; 
     Players.sort((aPlayer, bPlayer) => aPlayer.score - bPlayer.score).reverse();
-    Players.forEach((player) => theExport += '<tr><td>' + player.name + '</td><td>' + player.score + '</td><td><canvas id =' + player.name + '>' +'</canvas> </td></tr>');
+    if(Players[0] != leader)
+    {
+        leader = Players[0];
+        var canvas = document.getElementById("leader");
+        const vidStyleData = video.getBoundingClientRect();
+        canvas.style.width = vidStyleData.width + "px";
+        canvas.style.height = vidStyleData.height + "px";
+        canvas.style.left = vidStyleData.left + "px";
+        canvas.style.top = vidStyleData.top + "px";
+        
+
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+    }
+   
+
+    
+
+
+    Players.forEach(player => {
+        console.log(player.name);
+        
+        
+
+        theExport += '<tr><td>' + player.name + '</td><td>' + player.score + '</td><tr>';
+    });
+
+   
     document.getElementById("thingy").innerHTML = theExport; //Why have good ID's when you can have bad ones? | Who needs children when we can use innerHTML?
-    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+    
 }
 
 
@@ -102,18 +130,24 @@ function saveGame(player) {
             alert("Please finish a game to save it!")
             return;
         }
-        timeUp = false;
-        p1 = new Player(player, score);
-        
-        Players.push(p1);
         
         
         //const jsonContent = JSON.stringify(Players);
+        p1 = new Player(player, score);
+        
+        Players.push(p1);
         console.log(Players);
-        displayLeaderboard();
+        
         lastScore = score;
         score = 0;
         timeUp = false;
+        
+
+        
+        
+
+
+        displayLeaderboard();
         
         // fs.writeFile("./players.json", jsonContent, 'utf8', function (err) {
         //     if (err) {
