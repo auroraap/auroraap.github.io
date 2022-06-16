@@ -1,6 +1,9 @@
+
+
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
+
 let lastHole;
 let timeUp = false;
 let score = 0;
@@ -45,12 +48,12 @@ function startGame() {
 
 function displayLeaderboard() {
     let theExport = ""; 
-    Players.sort((aPlayer, bPlayer) => aPlayer.score - bPlayer.score);
+    Players.sort((aPlayer, bPlayer) => aPlayer.score - bPlayer.score).reverse();
     Players.forEach((player) => theExport += '<tr><td>' + player.name + '</td><td>' + player.score + '</td></tr>');
     document.getElementById("thingy").innerHTML = theExport; //Why have good ID's when you can have bad ones? | Who needs children when we can use innerHTML?
 }
 
-displayLeaderboard();
+
 
 function wack(e){
     if(!e.isTrusted) return; //** new thing I learned */
@@ -66,7 +69,28 @@ function Player(myName, myScore) {
     this.score = myScore;
 }
 
+// function saveGame(player) {
+//         p1 = new Player(player, score);
+//         Players.add(p1);
+// }
+
 function saveGame(player) {
         p1 = new Player(player, score);
-        Players.add(p1);
+        
+        Players.push(p1);
+        score = 0;
+        
+        //const jsonContent = JSON.stringify(Players);
+        console.log(Players);
+        displayLeaderboard();
+        
+        // fs.writeFile("./players.json", jsonContent, 'utf8', function (err) {
+        //     if (err) {
+        //         return console.log(err);
+        //     }
+        
+        //     console.log("The file was saved!");
+        // }); 
+        
 }
+
