@@ -15,45 +15,42 @@
     <button onClick="startGame()">Start!</button>
 
     <div class="game">
-        <div class="hole hole1">
+        <div class="hole">
             <div class="mole"></div>
         </div>
 
-        <div class="hole hole2">
+        <div class="hole">
             <div class="mole"></div>
         </div>
 
-        <div class="hole hole3">
+        <div class="hole">
             <div class="mole"></div>
         </div>
 
-        <div class="hole hole4">
+        <div class="hole">
             <div class="mole"></div>
         </div>
 
-        <div class="hole hole5">
+        <div class="hole">
             <div class="mole"></div>
         </div>
 
-        <div class="hole hole6">
+        <div class="hole">
             <div class="mole"></div>
         </div>
 
-    
     </div>
 
     <form>
         Player: <input type="text" id="player" name="player"><br>
     </form>
 
-    <button id="start-camera">Start Camera</button>
-    <button id="click-photo"> Click Photo </button>
     <button onClick="saveGame(player.value)"> Save score! </button>
     <button onClick="popUpMojito()">Get your mojitos!</button>
 
     <table>
         <thead>
-          <th>Player</th><th>Score</th><th> Picture </th>
+          <th>Player</th><th>Score</th>
         </thead>
         <tbody id="thingy"></tbody>
     </table>
