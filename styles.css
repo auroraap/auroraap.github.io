@@ -16,6 +16,11 @@ h1 {
     margin-bottom: 0;
 }
 
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 .score {
     background:#66ffff;
     padding: 0 48px;
