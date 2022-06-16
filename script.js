@@ -94,11 +94,12 @@ function saveGame(player) {
         p1 = new Player(player, score);
         
         Players.push(p1);
-        score = 0;
+        
         
         //const jsonContent = JSON.stringify(Players);
         console.log(Players);
         displayLeaderboard();
+        score = 0;
         
         // fs.writeFile("./players.json", jsonContent, 'utf8', function (err) {
         //     if (err) {
