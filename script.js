@@ -11,6 +11,17 @@ let lastScore = 0;
 let Players = [];
 let playing = false;
 
+let camera_button = document.querySelector("#start-camera");
+let video = document.querySelector("#video");
+let click_button = document.querySelector("#click-photo");
+
+
+camera_button.addEventListener('click', async function() {
+    let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+ video.srcObject = stream;
+});
+
+
 //create a function to make a random time for mole to pop from the hole
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -54,10 +65,13 @@ function startGame() {
 }
 
 function displayLeaderboard() {
+    // let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+	// video.srcObject = stream;
     let theExport = ""; 
     Players.sort((aPlayer, bPlayer) => aPlayer.score - bPlayer.score).reverse();
-    Players.forEach((player) => theExport += '<tr><td>' + player.name + '</td><td>' + player.score + '</td></tr>');
+    Players.forEach((player) => theExport += '<tr><td>' + player.name + '</td><td>' + player.score + '</td><td><canvas id =' + player.name + '>' +'</canvas> </td></tr>');
     document.getElementById("thingy").innerHTML = theExport; //Why have good ID's when you can have bad ones? | Who needs children when we can use innerHTML?
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
 }
 
 
