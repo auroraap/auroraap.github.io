@@ -94,3 +94,7 @@ function saveGame(player) {
         
 }
 
+function popUpMojito() {
+    var mojitoRecipe = 5*score + ' mint leaves for garnish\n' + 2*score + ' oz white rum\n' + 1*score + ' oz lime juice\n' + 0.5*score + 'oz simple syrup\nIce\nClub soda\nLime wedges for garnish';
+    window.alert(mojitoRecipe);
+}
