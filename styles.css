@@ -29,8 +29,8 @@ h1 {
     width: 600px;
     height: 400px;
     display:flex;
-    flex-wrap:wrap;
-    margin: 0 auto;
+    position: relative;
+    margin: 0 15%;
     
 }
 
@@ -42,28 +42,28 @@ h1 {
 
 .hole:after{
     display:block;
-    background: url(dirt.png) bottom center no-repeat;
+    background: url(cisco.png) bottom center no-repeat;
     background-size:contain;
     content: '';
     width: 100%;
     height: 90px;
     position: absolute;
     z-index: 2;
-    bottom: -30px;
+    bottom: 30px;
 }
 
 .mole {
-    background: url('mole.png') bottom center no-repeat;
-    background-size: 40%;
+    background: url('good-mole.png') bottom center no-repeat;
+    background-size: 80%;
     position: absolute;
-    top: 100%;
+    top: 200%;
     width: 100%;
     height: 100%;
     transition: all 0.4s;
 }
 
 .hole.up .mole{
-    top:0;
+    top:-80px;
 }
 
 button{
@@ -104,7 +104,7 @@ td {
 }
 
     .hole.up .mole{
-        top:17px;
+        top:40px;
     }
 }
 
@@ -115,7 +115,8 @@ td {
         height: 300px;
         display:flex;
         flex-wrap:wrap;
-        margin: 0 auto;
+        grid-template-columns: 1px;
+        /*margin: 10px;*/
     }
 
     .score{
@@ -137,9 +138,9 @@ td {
             font-size: 12px;
         }
 
-    .hole:after{
+    .hole1:after{
         display:block;
-        background: url(dirt.png) bottom center no-repeat;
+        background: url(cisco.png) bottom center no-repeat;
         background-size:contain;
         content: '';
         max-width: 70%;
@@ -150,7 +151,7 @@ td {
     }
 
     .mole {
-        background: url('mole.png') bottom center no-repeat;
+        background: url('good-mole.png') bottom center no-repeat;
         background-size: 60%;
         position: absolute;
         top: 100%;
