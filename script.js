@@ -7,8 +7,20 @@ const moles = document.querySelectorAll('.mole');
 let lastHole;
 let timeUp = false;
 let score = 0;
+let lastScore = 0;
 let Players = [];
 let playing = false;
+
+let camera_button = document.querySelector("#start-camera");
+let video = document.querySelector("#video");
+let click_button = document.querySelector("#click-photo");
+
+
+camera_button.addEventListener('click', async function() {
+    let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+ video.srcObject = stream;
+});
+
 
 //create a function to make a random time for mole to pop from the hole
 function randomTime(min, max) {
@@ -53,10 +65,13 @@ function startGame() {
 }
 
 function displayLeaderboard() {
+    // let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+	// video.srcObject = stream;
     let theExport = ""; 
     Players.sort((aPlayer, bPlayer) => aPlayer.score - bPlayer.score).reverse();
-    Players.forEach((player) => theExport += '<tr><td>' + player.name + '</td><td>' + player.score + '</td></tr>');
+    Players.forEach((player) => theExport += '<tr><td>' + player.name + '</td><td>' + player.score + '</td><td><canvas id =' + player.name + '>' +'</canvas> </td></tr>');
     document.getElementById("thingy").innerHTML = theExport; //Why have good ID's when you can have bad ones? | Who needs children when we can use innerHTML?
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
 }
 
 
@@ -75,13 +90,9 @@ function Player(myName, myScore) {
     this.score = myScore;
 }
 
-// function saveGame(player) {
-//         p1 = new Player(player, score);
-//         Players.add(p1);
-// }
-
 function saveGame(player) {
-        if(player == "")
+        
+        if(player == "" )
         {
             alert("Please input name!");
             return;
@@ -91,6 +102,7 @@ function saveGame(player) {
             alert("Please finish a game to save it!")
             return;
         }
+        timeUp = false;
         p1 = new Player(player, score);
         
         Players.push(p1);
@@ -99,7 +111,9 @@ function saveGame(player) {
         //const jsonContent = JSON.stringify(Players);
         console.log(Players);
         displayLeaderboard();
+        lastScore = score;
         score = 0;
+        timeUp = false;
         
         // fs.writeFile("./players.json", jsonContent, 'utf8', function (err) {
         //     if (err) {
@@ -112,6 +126,6 @@ function saveGame(player) {
 }
 
 function popUpMojito() {
-    var mojitoRecipe = 'RECIPE FOR ' + score + ' MOJITOS\n------\n' + 5*score + ' mint leaves for garnish\n' + 2*score + ' oz white rum\n' + 1*score + ' oz lime juice\n' + 0.5*score + 'oz simple syrup\nIce\nClub soda\nLime wedges for garnish';
+    var mojitoRecipe = 'RECIPE FOR ' + lastScore + ' MOJITOS\n------\n' + 5*lastScore + ' mint leaves for garnish\n' + 2*lastScore + ' oz white rum\n' + 1*lastScore + ' oz lime juice\n' + 0.5*lastScore + 'oz simple syrup\nIce\nClub soda\nLime wedges for garnish';
     window.alert(mojitoRecipe);
 }

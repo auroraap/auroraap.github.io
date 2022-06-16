@@ -46,12 +46,14 @@
         Player: <input type="text" id="player" name="player"><br>
     </form>
 
+    <button id="start-camera">Start Camera</button>
+    <button id="click-photo"> Click Photo </button>
     <button onClick="saveGame(player.value)"> Save score! </button>
     <button onClick="popUpMojito()">Get your mojitos!</button>
 
     <table>
         <thead>
-          <th>Player</th><th>Score</th><th> <canvas> </canvas> </th>
+          <th>Player</th><th>Score</th><th> Picture </th>
         </thead>
         <tbody id="thingy"></tbody>
     </table>
