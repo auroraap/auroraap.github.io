@@ -11,6 +11,7 @@ let lastScore = 0;
 let Players = [];
 let playing = false;
 let leader = null;
+let secs = 15;
 
 let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
@@ -53,7 +54,7 @@ function peep() {
 }
 
 function startGame() {
-
+    secs = 15;
     timeUp = false;
     if(playing == false)
     {
@@ -166,3 +167,14 @@ function playTropical() {
     var audio = new Audio('tropical.m4a');
     audio.play();
 }
+
+function updateTimer() {
+    if ((secs > 0) && (playing)){
+        --secs;
+    }
+    document.getElementById("timer")
+    .innerHTML =
+    '<div>' + secs + '<span> seconds left</span></div>';
+}
+
+setInterval('updateTimer()', 1000);
