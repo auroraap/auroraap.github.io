@@ -200,3 +200,23 @@ td {
         top:50px;
     }
 }
+
+#timer {
+    font-size: 1em;
+    font-weight: 100;
+    color: white;
+    padding: 10px;
+    width: 300px;
+    color: white;
+
+}
+
+#timer div {
+    display: inline-block;
+    min-width: 90px;
+    padding: 15px;
+    background: #33cc33;
+    border-radius: 10px;
+    border: 2px solid #33cc33;
+    margin: 15px;
+}
