@@ -107,7 +107,8 @@ function displayLeaderboard(name) {
 function wack(e){
     if(!e.isTrusted) return; //** new thing I learned */
     score++;
-    new Audio("slurp.mp3").play();
+    Math.floor(Math.random() * 10);
+    new Audio("mysound-" + Math.floor(Math.random() * 7) + ".mp3").play();
     this.parentNode.classList.remove('up'); //this refers to item clicked
     scoreBoard.textContent = score;
 }
