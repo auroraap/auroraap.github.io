@@ -17,6 +17,7 @@ let video = document.querySelector("#video");
 let click_button = document.querySelector("#click-photo");
 
 
+
 camera_button.addEventListener('click', async function() {
     let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
  video.srcObject = stream;
@@ -166,3 +167,5 @@ function playTropical() {
     var audio = new Audio('tropical.m4a');
     audio.play();
 }
+
+
