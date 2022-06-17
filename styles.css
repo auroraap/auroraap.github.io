@@ -1,4 +1,5 @@
 html {
+    font-family: "Comic Sans MS";
     font-size: 30px;
     background: #E2FFBC;
 }
@@ -76,17 +77,18 @@ button{
     font-size: 25px;
     height: 70px;
     color: #fff;
+    font-family: "Comic Sans MS";
     background-color: #33cc33;
     border-radius: 10px;
     margin-left: 20px;
     margin-top: 90px;
 }
 
+
 table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
-    font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
@@ -95,7 +97,7 @@ table {
     color: #ffffff;
     text-align: left;
 }
-
+#foobar { display: none }
 
 th,
 td {
@@ -165,6 +167,7 @@ td {
         }
 
         button{
+            font-family: "Comic Sans MS";
             margin: 10px 10px 10px 10px;
             height: 40px;
             width: 75px;
