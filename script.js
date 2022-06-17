@@ -53,6 +53,7 @@ function peep() {
 }
 
 function startGame() {
+
     timeUp = false;
     if(playing == false)
     {
@@ -144,11 +145,6 @@ function saveGame(player) {
         score = 0;
         timeUp = false;
         
-
-        
-        
-
-
         displayLeaderboard();
         
         // fs.writeFile("./players.json", jsonContent, 'utf8', function (err) {
@@ -164,4 +160,9 @@ function saveGame(player) {
 function popUpMojito() {
     var mojitoRecipe = 'RECIPE FOR ' + lastScore + ' MOJITOS\n------\n' + 5*lastScore + ' mint leaves for garnish\n' + 2*lastScore + ' oz white rum\n' + 1*lastScore + ' oz lime juice\n' + 0.5*lastScore + 'oz simple syrup\nIce\nClub soda\nLime wedges for garnish';
     window.alert(mojitoRecipe);
+}
+
+function playTropical() {
+    var audio = new Audio('tropical.m4a');
+    audio.play();
 }
